@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>קרב הדורות 👩‍👧 | אמא מול שלי</title>
+  
+  <!-- Google Fonts: Rubik & Heebo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- קנבס קונפטי -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- כותרת ראשית -->
+    <header class="app-header">
+      <div class="logo-group">
+        <div class="logo-badge">👩‍👧</div>
+        <div class="logo-titles">
+          <h1>קרב הדורות!</h1>
+          <p>אמא מול שלי – סלנג, שירים, נוסטלגיה ו-AI 🌸</p>
+        </div>
+      </div>
+      <button id="btnResetScores" class="btn btn-ghost" title="איפוס ניקוד">
+        🔄 איפוס נקודות
+      </button>
+    </header>
+
+    <!-- לוח תוצאות מהמם של שלי ואמא -->
+    <div class="scoreboard-wrapper">
+      <!-- כרטיס שלי -->
+      <div class="score-card shelly-card">
+        <div class="player-info">
+          <div class="player-avatar">👧</div>
+          <div class="player-text">
+            <h3>שלי</h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">הדור הצעיר 💫</span>
+          </div>
+        </div>
+        <div id="scoreShelly" class="player-score-display">0</div>
+      </div>
+
+      <!-- כרטיס אמא -->
+      <div class="score-card mom-card">
+        <div class="player-info">
+          <div class="player-avatar">👩</div>
+          <div class="player-text">
+            <h3>אמא</h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">שנות ה-80/90 💖</span>
+          </div>
+        </div>
+        <div id="scoreMom" class="player-score-display">0</div>
+      </div>
+    </div>
+
+    <!-- סרגל סינון קטגוריות -->
+    <div class="category-filter-bar">
+      <button class="filter-chip active" data-category="all">✨ הכל מעורבב</button>
+      <button class="filter-chip" data-category="slang">🗣️ סלנג וביטויים</button>
+      <button class="filter-chip" data-category="songs">🎵 השלם את השיר</button>
+      <button class="filter-chip" data-category="objects">📼 מה זה החפץ?!</button>
+      <button class="filter-chip" data-category="prices">💰 כמה זה עלה?</button>
+      <button class="filter-chip" data-category="ai_real">🤖 AI או אמיתי?!</button>
+      <button class="filter-chip" data-category="trends">🦄 טרנד אמיתי או חרטוט?!</button>
+    </div>
+
+    <!-- כרטיסיית המשחק הפעילה -->
+    <main class="battle-card">
+      <div class="card-top-tags">
+        <span id="categoryTag" class="category-tag">קטגוריה</span>
+        <span id="targetTag" class="target-tag">מי עונה</span>
+      </div>
+
+      <div id="questionText" class="question-text">
+        טוען שאלה...
+      </div>
+
+      <div id="hintPill" class="hint-pill">
+        רמז יופיע כאן
+      </div>
+
+      <!-- תיבת התשובה (מוסתרת עד לחיצה) -->
+      <div id="revealBox" class="reveal-box">
+        <div class="reveal-title">✓ התשובה הנכונה:</div>
+        <div id="revealText" class="reveal-text"></div>
+      </div>
+
+      <!-- כפתור חשיפת תשובה -->
+      <button id="btnReveal" class="btn btn-reveal">
+        👁️ חשוף את התשובה!
+      </button>
+
+      <!-- כפתורי סימון ניקוד לאחר החשיפה -->
+      <div id="scoringActions" class="scoring-actions">
+        <div class="scoring-title">מי ענתה נכון? לחצו כדי להוסיף נקודה:</div>
+        <div class="scoring-buttons-grid">
+          <button id="btnPointShelly" class="btn btn-point-shelly">
+            👧 שלי צדקה (+1)
+          </button>
+          <button id="btnPointMom" class="btn btn-point-mom">
+            👩 אמא צדקה (+1)
+          </button>
+          <button id="btnPointBoth" class="btn btn-point-both">
+            👯‍♀️ שתינו צדקנו! (+1 לכל אחת)
+          </button>
+          <button id="btnPointNone" class="btn btn-skip">
+            ⏭️ אף אחת לא ידעה (הבא)
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- סרגל תחתון עם מונה -->
+    <div class="footer-bar">
+      <span id="cardCounter">קלף 1</span>
+      <span>💖 זמן איכות של אמא ובת</span>
+    </div>
+
+  </div>
+
+  <!-- סקריפטים -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
